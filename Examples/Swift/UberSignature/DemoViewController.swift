@@ -76,11 +76,5 @@ class DemoViewController: UIViewController, SignatureDrawingViewControllerDelega
     @objc private func resetTapped() {
         signatureViewController.reset()
     }
-
-    // Note: Added to resolve issue with iOS 13 modal sheets in which
-    // touchesBegan would not be called at all when presented modally.
-    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return false
-    }
 }
 

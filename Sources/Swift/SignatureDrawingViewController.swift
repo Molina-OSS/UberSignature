@@ -177,6 +177,12 @@ public class SignatureDrawingViewController: UIViewController {
             self.isEmpty = self.bezierPathLayer.path == nil && self.imageView.image == nil
         }
     }
+
+    // Note: Added to resolve issue with iOS 13 modal sheets in which
+    // touchesBegan would not be called at all when presented modally.
+    override open func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return false
+    }
 }
 
 extension Set where Element == UITouch {
